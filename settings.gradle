@@ -1,0 +1,5 @@
+rootProject.name = 'spring-cloud-kafka-stream'
+include 'producer-service'
+include 'consumer-service'
+include 'processor-service'
+

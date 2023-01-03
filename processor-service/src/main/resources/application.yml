@@ -1,0 +1,24 @@
+spring.cloud.stream:
+  function:
+    definition: numberProcessor
+  bindings:
+    numberProcessor-in-0:
+      destination: numbers
+    numberProcessor-out-0:
+      destination: odd-even-numbers
+  kafka:
+    bindings:
+      numberProcessor-in-0:
+        consumer:
+          configuration:
+            value:
+              serializer: org.springframework.kafka.support.serializer.IntegerSerializer
+      numberProcessor-out-0:
+        producer:
+          configuration:
+            value:
+              serializer: org.springframework.kafka.support.serializer.StringSerializer
+    binder:
+      brokers:
+        - localhost:9091
+        - localhost:9092
